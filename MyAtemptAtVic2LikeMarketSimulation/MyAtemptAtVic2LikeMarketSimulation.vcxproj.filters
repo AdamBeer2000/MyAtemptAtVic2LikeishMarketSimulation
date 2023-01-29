@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Interfaces">
+      <UniqueIdentifier>{6a3f3ec4-74fe-4978-8eab-ee6d69e050dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Creators">
+      <UniqueIdentifier>{26232dc4-c08e-4508-ba96-886331e39689}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Creators">
+      <UniqueIdentifier>{f397a1b8-7aec-4bb9-b5df-f5d38ddba012}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Market">
+      <UniqueIdentifier>{2822527e-582b-4b6a-ae63-f0de0527b3c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Market">
+      <UniqueIdentifier>{bba149d6-6d77-47fb-bc3f-190b9ad2accf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Models">
+      <UniqueIdentifier>{ff940a98-336d-491f-b2bc-7d867f457d60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Models">
+      <UniqueIdentifier>{0bb7fca2-771b-4a0b-831b-a1f0f16ec271}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MyAtemptAtVic2LikeMarketSimulation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mine.cpp">
+      <Filter>Source Files\Creators</Filter>
+    </ClCompile>
+    <ClCompile Include="factory.cpp">
+      <Filter>Source Files\Creators</Filter>
+    </ClCompile>
+    <ClCompile Include="resurcemine.cpp">
+      <Filter>Source Files\Creators</Filter>
+    </ClCompile>
+    <ClCompile Include="market.cpp">
+      <Filter>Source Files\Market</Filter>
+    </ClCompile>
+    <ClCompile Include="singletonworldmarket.cpp">
+      <Filter>Source Files\Market</Filter>
+    </ClCompile>
+    <ClCompile Include="need.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="product.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="mainwindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IProductType.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IBudget.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="factory.h">
+      <Filter>Header Files\Creators</Filter>
+    </ClInclude>
+    <ClInclude Include="mine.h">
+      <Filter>Header Files\Creators</Filter>
+    </ClInclude>
+    <ClInclude Include="resurcemine.h">
+      <Filter>Header Files\Creators</Filter>
+    </ClInclude>
+    <ClInclude Include="source.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="market.h">
+      <Filter>Header Files\Market</Filter>
+    </ClInclude>
+    <ClInclude Include="singletonworldmarket.h">
+      <Filter>Header Files\Market</Filter>
+    </ClInclude>
+    <ClInclude Include="product.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="need.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

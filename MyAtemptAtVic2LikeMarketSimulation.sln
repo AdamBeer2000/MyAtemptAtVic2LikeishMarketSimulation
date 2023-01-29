@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MyAtemptAtVic2LikeMarketSimulation", "MyAtemptAtVic2LikeMarketSimulation\MyAtemptAtVic2LikeMarketSimulation.vcxproj", "{40277C66-ED70-45A8-83B6-669B56AF8678}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40277C66-ED70-45A8-83B6-669B56AF8678}.Debug|x64.ActiveCfg = Debug|x64
+		{40277C66-ED70-45A8-83B6-669B56AF8678}.Debug|x64.Build.0 = Debug|x64
+		{40277C66-ED70-45A8-83B6-669B56AF8678}.Debug|x86.ActiveCfg = Debug|Win32
+		{40277C66-ED70-45A8-83B6-669B56AF8678}.Debug|x86.Build.0 = Debug|Win32
+		{40277C66-ED70-45A8-83B6-669B56AF8678}.Release|x64.ActiveCfg = Release|x64
+		{40277C66-ED70-45A8-83B6-669B56AF8678}.Release|x64.Build.0 = Release|x64
+		{40277C66-ED70-45A8-83B6-669B56AF8678}.Release|x86.ActiveCfg = Release|Win32
+		{40277C66-ED70-45A8-83B6-669B56AF8678}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3FAC10B3-87FA-4242-82DD-8865C9DF9F3E}
+	EndGlobalSection
+EndGlobal
