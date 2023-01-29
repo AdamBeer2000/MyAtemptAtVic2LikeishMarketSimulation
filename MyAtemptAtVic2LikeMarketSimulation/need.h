@@ -7,22 +7,22 @@ class Need :public IProductType
 {
 	double ammountNeeded;
 	double amountStored;
-	double capacity;
+	double storageCapacity;
 
 	void incraseStored(double amount);
 	void decraseStored(double amount);
 
 public:
-	Need(ProductType type, double ammountNeeded, double amountStored = 100, double capacity = 100)
-		:IProductType(type), ammountNeeded(ammountNeeded), amountStored(amountStored), capacity(capacity)
+	Need(ProductType type, double ammountNeeded, double amountStored = 100, double storageCapacity = 100)
+		:IProductType(type), ammountNeeded(ammountNeeded), amountStored(amountStored), storageCapacity(storageCapacity)
 	{
 
 	}
-	void store(double ammount);
+	void Restock(double ammount);
 	double need2FillToCapacity()const;
 	double getAmmountNeeded() const;
 	double getAmountStored() const;
-	void use(double ammount);
+	void Consume(double ammount);
 	double ammountCanBeMade() const;
 	double getCapacity()const;
 

@@ -128,26 +128,31 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="factory.cpp" />
+    <ClCompile Include="ISimpleConsumer.cpp" />
     <ClCompile Include="market.cpp" />
     <ClCompile Include="mine.cpp" />
     <ClCompile Include="MyAtemptAtVic2LikeMarketSimulation.cpp" />
     <ClCompile Include="need.cpp" />
+    <ClCompile Include="Pop.cpp" />
     <ClCompile Include="product.cpp" />
     <ClCompile Include="resurcemine.cpp" />
     <ClCompile Include="singletonworldmarket.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IConsumer.h" />
     <ClInclude Include="factory.h" />
     <ClInclude Include="IBudget.h" />
+    <ClInclude Include="ISimpleConsumer.h" />
     <ClInclude Include="mainwindow.h" />
     <ClInclude Include="market.h" />
     <ClInclude Include="mine.h" />
     <ClInclude Include="need.h" />
+    <ClInclude Include="Pop.h" />
     <ClInclude Include="product.h" />
     <ClInclude Include="IProductType.h" />
     <ClInclude Include="resurcemine.h" />
     <ClInclude Include="singletonworldmarket.h" />
-    <ClInclude Include="source.h" />
+    <ClInclude Include="ISource.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

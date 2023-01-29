@@ -1,15 +1,2 @@
-﻿  MyAtemptAtVic2LikeMarketSimulation.cpp
-C:\Users\AdamBeer\source\repos\MyAtemptAtVic2LikeMarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  factory.cpp
-C:\Users\AdamBeer\source\repos\MyAtemptAtVic2LikeMarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\AdamBeer\source\repos\MyAtemptAtVic2LikeMarketSimulation\MyAtemptAtVic2LikeMarketSimulation\factory.cpp(51,51): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-  market.cpp
-  mine.cpp
-  need.cpp
-  product.cpp
-  resurcemine.cpp
-C:\Users\AdamBeer\source\repos\MyAtemptAtVic2LikeMarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  singletonworldmarket.cpp
-C:\Users\AdamBeer\source\repos\MyAtemptAtVic2LikeMarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Generating Code...
-  MyAtemptAtVic2LikeMarketSimulation.vcxproj -> C:\Users\AdamBeer\source\repos\MyAtemptAtVic2LikeMarketSimulation\x64\Debug\MyAtemptAtVic2LikeMarketSimulation.exe
+﻿  ISimpleConsumer.cpp
+  MyAtemptAtVic2LikeMarketSimulation.vcxproj -> C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\x64\Debug\MyAtemptAtVic2LikeMarketSimulation.exe

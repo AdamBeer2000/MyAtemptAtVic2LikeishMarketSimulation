@@ -34,6 +34,12 @@
     <Filter Include="Source Files\Models">
       <UniqueIdentifier>{0bb7fca2-771b-4a0b-831b-a1f0f16ec271}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Consumers">
+      <UniqueIdentifier>{e307831c-bb29-4347-94d5-dc105ff04394}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Consumers">
+      <UniqueIdentifier>{275ebbd2-2378-4af1-bcf6-f2963176068a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyAtemptAtVic2LikeMarketSimulation.cpp">
@@ -60,6 +66,12 @@
     <ClCompile Include="product.cpp">
       <Filter>Source Files\Models</Filter>
     </ClCompile>
+    <ClCompile Include="Pop.cpp">
+      <Filter>Source Files\Consumers</Filter>
+    </ClCompile>
+    <ClCompile Include="ISimpleConsumer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mainwindow.h">
@@ -80,7 +92,7 @@
     <ClInclude Include="resurcemine.h">
       <Filter>Header Files\Creators</Filter>
     </ClInclude>
-    <ClInclude Include="source.h">
+    <ClInclude Include="ISource.h">
       <Filter>Header Files\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="market.h">
@@ -94,6 +106,15 @@
     </ClInclude>
     <ClInclude Include="need.h">
       <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Pop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IConsumer.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ISimpleConsumer.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

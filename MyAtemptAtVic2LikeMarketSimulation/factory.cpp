@@ -18,7 +18,7 @@ void Factory::Produce()
 	{
 		for (auto n : needs)
 		{
-			n->use(canBeMade);
+			n->Consume(canBeMade);
 		}
 
 		Factory::Produce(canBeMade);
@@ -28,7 +28,7 @@ void Factory::Produce()
 	{
 		for (auto n : needs)
 		{
-			n->use(myCapacity);
+			n->Consume(myCapacity);
 		}
 
 		Factory::Produce(myCapacity);

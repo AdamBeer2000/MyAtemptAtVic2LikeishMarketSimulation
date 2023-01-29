@@ -1,7 +1,7 @@
 #ifndef FACTORY_H
 #define FACTORY_H
 
-#include "source.h"
+#include "ISource.h"
 #include <vector>
 #include <algorithm>
 #include "singletonworldmarket.h"
@@ -14,7 +14,7 @@ class Factory :public ISource, public IBudget, public IProductType
 public:
 	std::vector<std::shared_ptr<Need>> needs;
 public:
-	Factory(ProductType sourceType, double capacity, std::vector<std::shared_ptr<Need>>, double startCash = 1000);
+	Factory(ProductType sourceType, double capacity, std::vector<std::shared_ptr<Need>> needs, double startCash = 1000);
 	void Produce();
 	void Restock();
 	void Print();

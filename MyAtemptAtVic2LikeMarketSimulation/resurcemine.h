@@ -1,7 +1,7 @@
 #ifndef RESOURCEMINE_H
 #define RESOURCEMINE_H
 #include "IProductType.h"
-#include "source.h"
+#include "ISource.h"
 #include "singletonworldmarket.h"
 
 #include "IProductType.h"

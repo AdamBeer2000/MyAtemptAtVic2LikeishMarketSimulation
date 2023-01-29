@@ -32,7 +32,7 @@ void Market::BuyAmount(ProductType ptype, unsigned int amount, std::shared_ptr<N
 	source->Income(rec.get()->price * amount);
 	buyer->Expense(rec.get()->price * amount);
 	p.get()->decreaseBy(amount);
-	storeIn.get()->store(amount);
+	storeIn.get()->Restock(amount);
 }
 
 double Market::GetCostOf(ProductType ptype)const

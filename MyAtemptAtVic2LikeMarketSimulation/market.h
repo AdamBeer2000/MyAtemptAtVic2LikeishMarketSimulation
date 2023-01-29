@@ -6,7 +6,7 @@
 #include <iostream>
 #include <numeric>
 #include <algorithm>
-#include "source.h"
+#include "ISource.h"
 #include "product.h"
 #include "need.h"
 

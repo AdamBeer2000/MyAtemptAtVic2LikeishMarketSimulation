@@ -2,48 +2,48 @@
 
 void Need::incraseStored(double amount)
 {
-    if (amountStored + amount > capacity)
-        throw "Sotorage would exceed capacity!";
+	if (amountStored + amount > storageCapacity)
+		throw "Sotorage would exceed capacity!";
 
-    ammountNeeded += amount;
+	ammountNeeded += amount;
 }
 void Need::decraseStored(double amount)
 {
-    if (amountStored - amount < capacity)
-        throw "Sotorage coudnt be negative";
-    ammountNeeded -= amount;
+	if (amountStored - amount < storageCapacity)
+		throw "Sotorage coudnt be negative";
+	ammountNeeded -= amount;
 }
-void Need::store(double ammount)
+void Need::Restock(double ammount)
 {
-    amountStored += ammount;
+	amountStored += ammount;
 }
 
 double Need::need2FillToCapacity() const
 {
-    return capacity - amountStored;
+	return storageCapacity - amountStored;
 }
 
 double Need::getAmmountNeeded() const
 {
-    return ammountNeeded;
+	return ammountNeeded;
 }
 
 double Need::getAmountStored() const
 {
-    return amountStored;
+	return amountStored;
 }
 
-void Need::use(double ammount)
+void Need::Consume(double ammount)
 {
-    this->amountStored -= ammountNeeded * ammount;
+	this->amountStored -= ammountNeeded * ammount;
 }
 
 double Need::ammountCanBeMade() const
 {
-    return amountStored / ammountNeeded;
+	return amountStored / ammountNeeded;
 }
 
 double Need::getCapacity() const
 {
-    return capacity;
+	return storageCapacity;
 }
