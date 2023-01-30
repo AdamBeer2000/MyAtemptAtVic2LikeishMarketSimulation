@@ -1,21 +1,18 @@
 #include "need.h"
+#include <iostream>
 
 void Need::incraseStored(double amount)
 {
 	if (amountStored + amount > storageCapacity)
 		throw "Sotorage would exceed capacity!";
 
-	ammountNeeded += amount;
+	amountStored += amount;
 }
 void Need::decraseStored(double amount)
 {
-	if (amountStored - amount < storageCapacity)
+	if (amountStored - amount < 0)
 		throw "Sotorage coudnt be negative";
-	ammountNeeded -= amount;
-}
-void Need::Restock(double ammount)
-{
-	amountStored += ammount;
+	amountStored -= amount;
 }
 
 double Need::need2FillToCapacity() const
@@ -46,4 +43,9 @@ double Need::ammountCanBeMade() const
 double Need::getCapacity() const
 {
 	return storageCapacity;
+}
+
+void Need::Print() const
+{
+	std::cout << "[Type" << myProductType << " Stored:" << amountStored << "],";
 }

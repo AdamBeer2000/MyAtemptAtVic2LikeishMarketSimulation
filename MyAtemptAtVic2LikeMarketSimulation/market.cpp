@@ -5,10 +5,8 @@ Market::Market()
 {
 	catalog = std::map<ProductType, std::shared_ptr<CatalogRecord>>();
 
-	catalog.insert({ ProductType::beer,std::shared_ptr<Market::CatalogRecord>(new Market::CatalogRecord(ProductType::beer,200.0)) });
-	catalog.insert({ ProductType::greap,std::shared_ptr<Market::CatalogRecord>(new Market::CatalogRecord(ProductType::greap,200.0)) });
-	catalog.insert({ ProductType::wheat,std::shared_ptr<Market::CatalogRecord>(new Market::CatalogRecord(ProductType::wheat,200.0)) });
-	catalog.insert({ ProductType::wine,std::shared_ptr<Market::CatalogRecord>(new Market::CatalogRecord(ProductType::wine,200.0)) });
+	catalog.insert({ ProductType::beer,std::shared_ptr<Market::CatalogRecord>(new Market::CatalogRecord(ProductType::beer,50)) });
+	catalog.insert({ ProductType::grain,std::shared_ptr<Market::CatalogRecord>(new Market::CatalogRecord(ProductType::grain,2.2)) });
 }
 
 void Market::AddToMarket(ProductStorage product)
@@ -17,22 +15,26 @@ void Market::AddToMarket(ProductStorage product)
 	record->offers.push_back(std::make_shared<ProductStorage>(product));
 }
 
-void Market::BuyAmount(ProductType ptype, unsigned int amount, std::shared_ptr<Need> storeIn, IBudget* buyer)
+bool Market::BuyAmount(ProductType ptype, unsigned int amount, std::shared_ptr<Need> storeIn, IBudget* buyer)
 {
+	if (catalog.find(ptype) == catalog.end())return false;
 	auto rec = catalog.at(ptype);
+
 	auto offers = rec.get()->offers;
+
 	auto SuitableOffers = std::find_if(offers.begin(), offers.end(), [&amount](std::shared_ptr<ProductStorage> p)
 		{
 			return p.get()->getAmount() >= amount;
 		});
-	if (SuitableOffers == std::end(offers))return;
+	if (SuitableOffers == std::end(offers))return false;
 
 	std::shared_ptr<ProductStorage> p = *SuitableOffers;
 	auto source = p.get()->getSource();
-	source->Income(rec.get()->price * amount);
-	buyer->Expense(rec.get()->price * amount);
+	double cost = rec.get()->price * amount;
+	source->Income(cost);
+	buyer->Expense(cost);
 	p.get()->decreaseBy(amount);
-	storeIn.get()->Restock(amount);
+	storeIn.get()->incraseStored(amount);
 }
 
 double Market::GetCostOf(ProductType ptype)const

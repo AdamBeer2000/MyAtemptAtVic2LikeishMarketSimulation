@@ -40,6 +40,15 @@
     <Filter Include="Source Files\Consumers">
       <UniqueIdentifier>{275ebbd2-2378-4af1-bcf6-f2963176068a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{07cb0ab7-25de-4e7f-a670-08d0345dc6db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Pops">
+      <UniqueIdentifier>{c374049c-65b1-45fb-895d-3c420fd7717b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Creators\Farm">
+      <UniqueIdentifier>{7d8086bd-61d2-4ecf-a769-70e213a3aab9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyAtemptAtVic2LikeMarketSimulation.cpp">
@@ -70,6 +79,9 @@
       <Filter>Source Files\Consumers</Filter>
     </ClCompile>
     <ClCompile Include="ISimpleConsumer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ISource.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -107,14 +119,26 @@
     <ClInclude Include="need.h">
       <Filter>Header Files\Models</Filter>
     </ClInclude>
-    <ClInclude Include="Pop.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="IConsumer.h">
       <Filter>Header Files\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="ISimpleConsumer.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IPrintable.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="PopType.h">
+      <Filter>Header Files\Pops</Filter>
+    </ClInclude>
+    <ClInclude Include="Pop.h">
+      <Filter>Header Files\Pops</Filter>
+    </ClInclude>
+    <ClInclude Include="Farmer.h">
+      <Filter>Header Files\Pops</Filter>
+    </ClInclude>
+    <ClInclude Include="Farm.h">
+      <Filter>Header Files\Creators\Farm</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

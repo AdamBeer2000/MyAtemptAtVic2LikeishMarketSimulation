@@ -6,7 +6,6 @@
 #include <iostream>
 #include <numeric>
 #include <algorithm>
-#include "ISource.h"
 #include "product.h"
 #include "need.h"
 
@@ -29,7 +28,7 @@ private:
 public:
 	Market();
 	void AddToMarket(ProductStorage product);
-	void BuyAmount(ProductType ptype, unsigned int amount, std::shared_ptr<Need> storeIn, IBudget* buyer);
+	bool BuyAmount(ProductType ptype, unsigned int amount, std::shared_ptr<Need> storeIn, IBudget* buyer);
 	double GetCostOf(ProductType ptype)const;
 	void Print()const;
 };

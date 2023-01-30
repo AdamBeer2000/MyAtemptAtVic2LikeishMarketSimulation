@@ -1,7 +1,7 @@
 #include "factory.h"
 
 Factory::Factory(ProductType sourceType, double capacity, std::vector<std::shared_ptr<Need>>needs, double startCash)
-	:ISource(capacity), IProductType(sourceType), IBudget(startCash), needs(needs)
+	:ISource(capacity, startCash), IProductType(sourceType), needs(needs)
 {
 
 }
@@ -14,7 +14,7 @@ void Factory::Produce()
 	std::vector<std::shared_ptr<Need>>::iterator minimumElement = std::min_element(needs.begin(), needs.end(), lambda);
 	double canBeMade = ((std::shared_ptr<Need>) * minimumElement)->ammountCanBeMade();
 
-	if (canBeMade < myCapacity)
+	if (canBeMade < baseCapacity)
 	{
 		for (auto n : needs)
 		{
@@ -28,10 +28,10 @@ void Factory::Produce()
 	{
 		for (auto n : needs)
 		{
-			n->Consume(myCapacity);
+			n->Consume(baseCapacity);
 		}
 
-		Factory::Produce(myCapacity);
+		Factory::Produce(baseCapacity);
 	}
 }
 
@@ -57,7 +57,7 @@ void Factory::Print()
 	std::cout << "Type: " << myProductType << " Money:" << myBudget << " Needs : ";
 	for (auto n : needs)
 	{
-		std::cout << "[Type" << n.get()->getProductType() << " Stored:" << n.get()->getAmountStored() << "],";
+		n.get()->Print();
 	}
 	std::cout << std::endl;
 }

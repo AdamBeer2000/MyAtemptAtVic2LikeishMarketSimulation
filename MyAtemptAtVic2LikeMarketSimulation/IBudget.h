@@ -2,13 +2,13 @@
 #define IBUDGET_H
 #include <exception>
 #include <string>
-#include<sstream>
+#include <sstream>
 class IBudget
 {
 
 protected:
 	double myBudget;
-
+	double income = 0;
 public:
 
 	class BudgetExc : public std::exception
@@ -48,13 +48,16 @@ public:
 
 	void Expense(double ammount)
 	{
-		if (myBudget - ammount < 0)throw BudgetExc(myBudget, ammount, true);
+		//if (myBudget - ammount < 0) throw BudgetExc(myBudget, ammount, true);
 		myBudget -= ammount;
 	}
+
 	void Income(double ammount)
 	{
 		myBudget += ammount;
+		income += ammount;
 	}
+
 	double GetBudget()const
 	{
 		return myBudget;

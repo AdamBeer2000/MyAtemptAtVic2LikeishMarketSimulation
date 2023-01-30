@@ -3,11 +3,10 @@
 #include "IProductType.h"
 #include "ISource.h"
 #include "singletonworldmarket.h"
-
 #include "IProductType.h"
 #include "IBudget.h"
 
-class ResourceMine :public ISource, public IBudget, public IProductType
+class ResourceGatheringOperation :public ISource, public IBudget, public IProductType
 {
 
 private:
@@ -15,9 +14,10 @@ private:
 protected:
 	void Produce(double ammount);
 public:
-	ResourceMine(ProductType sourceType, double capacity, double startCash = 1000);
-
+	ResourceGatheringOperation(ProductType sourceType, double capacity, double startCash = 1000);
+	void Payout()override;
 	void Produce();
+	void Print()const;
 };
 
 #endif // SOURCE_H

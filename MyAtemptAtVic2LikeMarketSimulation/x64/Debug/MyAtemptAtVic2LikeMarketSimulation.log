@@ -1,2 +1,17 @@
-﻿  ISimpleConsumer.cpp
+﻿  ISource.cpp
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  MyAtemptAtVic2LikeMarketSimulation.cpp
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\resurcemine.h(9,42): warning C4584: 'ResourceGatheringOperation': base-class 'IBudget' is already a base-class of 'ISource'
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\IBudget.h(6,7): message : see declaration of 'IBudget'
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\ISource.h(6,7): message : see declaration of 'ISource'
+  factory.cpp
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\factory.cpp(51,51): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
+  resurcemine.cpp
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\resurcemine.h(9,42): warning C4584: 'ResourceGatheringOperation': base-class 'IBudget' is already a base-class of 'ISource'
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\IBudget.h(6,7): message : see declaration of 'IBudget'
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\ISource.h(6,7): message : see declaration of 'ISource'
+  Generating Code...
   MyAtemptAtVic2LikeMarketSimulation.vcxproj -> C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\x64\Debug\MyAtemptAtVic2LikeMarketSimulation.exe

@@ -9,7 +9,7 @@
 #include "IProductType.h"
 #include "IBudget.h"
 
-class Factory :public ISource, public IBudget, public IProductType
+class Factory :public ISource, public IProductType
 {
 public:
 	std::vector<std::shared_ptr<Need>> needs;

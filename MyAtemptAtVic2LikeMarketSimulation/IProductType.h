@@ -3,7 +3,13 @@
 
 enum ProductType
 {
-	beer, wheat, greap, wine
+	//rgo resources
+	beer, grain, wine, timber, cattle, fruit, fish, wool, coal, iron, cotton, tea, coffee, tropical_wood, tobaco, sulphur, silk, opium, precious_metal, rubber,
+	//products
+	aeroplane, ammunition, artillery, automobile, tank, canned_food, cement, clipper, electric_gear, explosives, fabric, fertilizer, fuel, furniture, glass,
+	liquor, lumber, luxury_clothes, luxury_furniture, machine_parts, paper_mill, radio, regular_clothes, small_arms, steamer, steel, telephone,
+	//both
+	oil, dye
 };
 
 class IProductType
