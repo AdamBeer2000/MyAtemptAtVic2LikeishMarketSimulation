@@ -46,8 +46,8 @@
     <Filter Include="Header Files\Pops">
       <UniqueIdentifier>{c374049c-65b1-45fb-895d-3c420fd7717b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Creators\Farm">
-      <UniqueIdentifier>{7d8086bd-61d2-4ecf-a769-70e213a3aab9}</UniqueIdentifier>
+    <Filter Include="Header Files\RGO">
+      <UniqueIdentifier>{d2524140-289c-4a67-9a44-cf62142b0a47}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -101,9 +101,6 @@
     <ClInclude Include="mine.h">
       <Filter>Header Files\Creators</Filter>
     </ClInclude>
-    <ClInclude Include="resurcemine.h">
-      <Filter>Header Files\Creators</Filter>
-    </ClInclude>
     <ClInclude Include="ISource.h">
       <Filter>Header Files\Interfaces</Filter>
     </ClInclude>
@@ -137,8 +134,23 @@
     <ClInclude Include="Farmer.h">
       <Filter>Header Files\Pops</Filter>
     </ClInclude>
-    <ClInclude Include="Farm.h">
-      <Filter>Header Files\Creators\Farm</Filter>
+    <ClInclude Include="Capitalist.h">
+      <Filter>Header Files\Pops</Filter>
+    </ClInclude>
+    <ClInclude Include="Aristocrat.h">
+      <Filter>Header Files\Pops</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaceholderDEFINES.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resurcemine.h">
+      <Filter>Header Files\RGO</Filter>
+    </ClInclude>
+    <ClInclude Include="CattleRanch.h">
+      <Filter>Header Files\RGO</Filter>
+    </ClInclude>
+    <ClInclude Include="Header.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

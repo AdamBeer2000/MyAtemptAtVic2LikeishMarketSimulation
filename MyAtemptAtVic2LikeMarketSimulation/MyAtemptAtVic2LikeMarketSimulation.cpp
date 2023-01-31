@@ -1,6 +1,3 @@
-// MyAtemptAtVic2LikeMarketSimulation.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
 #include "factory.h"
 #include "mainwindow.h"
@@ -8,60 +5,39 @@
 #include "need.h"
 #include "Pop.h"
 #include "Farmer.h"
+#include "Aristocrat.h"
+
 int main()
 {
-	ResourceGatheringOperation* wm = new ResourceGatheringOperation(ProductType::grain, 100);
-	auto instance = SingletonWorldMarket::getInstance();
-	std::vector<std::shared_ptr<Farmer> > farmers = std::vector<std::shared_ptr<Farmer> >();
+	ResourceGatheringOperation* rgo1 = new ResourceGatheringOperation(ProductType::grain, 100);
 
-	for (int i = 0; i < 10; i++)
+	auto instance = SingletonWorldMarket::getInstance();
+	std::vector<std::shared_ptr<Pop> > pops = std::vector<std::shared_ptr<Pop>>();
+
+	for (int i = 0; i < 500; i++)
 	{
 		auto sf = std::make_shared<Farmer>();
-		wm->AddWorker(sf);
-		farmers.push_back(sf);
+		rgo1->AddWorker(sf);
+		pops.push_back(sf);
 	}
-	wm->Produce();
-	wm->Print();
-
-	for (auto f : farmers)
+	for (int i = 0; i < 5; i++)
 	{
-		f->Restock();
+		auto sf = std::make_shared<Aristocrat>();
+		rgo1->AddOwner(sf);
+		pops.push_back(sf);
 	}
 
-	wm->Print();
+	rgo1->Produce();
 
-	for (auto f : farmers)
+	for (auto f : pops)
 	{
-		f->Consume();
+		f.get()->CalcNeedFulfillment();
 	}
 
-	wm->Print();
-	wm->Payout();
-	wm->Print();
+	rgo1->Payout();
 
-	/*
-	std::vector<std::shared_ptr<Need>> beerNeeds = std::vector<std::shared_ptr<Need>>();
-	beerNeeds.push_back(std::make_shared<Need>(ProductType::grain, 10, 100));
-	Factory* beerF = new Factory(ProductType::beer, 10, beerNeeds);
+	rgo1->Print();
 
-	std::map<ProductType, std::shared_ptr<Need>> farmerNeeds = std::map<ProductType, std::shared_ptr<Need>>();
-	farmerNeeds.insert({ ProductType::beer ,std::make_shared<Need>(ProductType::beer, 10, 0, 10) });
-	Pop* farmer = new Pop(PopType::farmer, 100, farmerNeeds);
-
-	wm->Produce();
-	beerF->Print();
-	beerF->Produce();
-	beerF->Print();
-
-	farmer->Print();
-	farmer->Restock();
-	farmer->Print();
-	farmer->Consume();
-	farmer->Print();
-
-	beerF->Print();
-	beerF->Restock();
-	beerF->Print();
-	*/
+	delete rgo1;
 	std::cout << "Hello World!\n";
 }

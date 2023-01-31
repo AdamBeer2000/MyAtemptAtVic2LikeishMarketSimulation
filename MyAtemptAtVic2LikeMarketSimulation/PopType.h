@@ -1,7 +1,7 @@
 #pragma once
 enum PopType
 {
-	craftman, laborel, capitalist, farmer
+	craftman, laborel, capitalist, farmer, aristocrat
 };
 
 class IPopType

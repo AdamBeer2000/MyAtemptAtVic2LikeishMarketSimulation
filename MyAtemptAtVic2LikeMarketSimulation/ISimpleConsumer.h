@@ -16,4 +16,9 @@ public:
 	void Consume() override;
 	std::vector<ProductType>GetNeedTypes() override;
 	void AddNeed(Need n) override;
+
+	~ISimpleConsumer()
+	{
+		needs.clear();
+	}
 };

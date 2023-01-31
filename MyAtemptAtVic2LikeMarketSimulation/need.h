@@ -9,8 +9,6 @@ class Need :public IProductType
 	double amountStored;
 	double storageCapacity;
 
-
-
 public:
 	Need(ProductType type, double ammountNeeded, double amountStored = 100, double storageCapacity = 100)
 		:IProductType(type), ammountNeeded(ammountNeeded), amountStored(amountStored), storageCapacity(storageCapacity)

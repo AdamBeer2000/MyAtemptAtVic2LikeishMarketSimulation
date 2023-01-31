@@ -140,8 +140,11 @@
     <ClCompile Include="singletonworldmarket.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Farm.h" />
+    <ClInclude Include="Aristocrat.h" />
+    <ClInclude Include="Capitalist.h" />
+    <ClInclude Include="CattleRanch.h" />
     <ClInclude Include="Farmer.h" />
+    <ClInclude Include="Header.h" />
     <ClInclude Include="IConsumer.h" />
     <ClInclude Include="factory.h" />
     <ClInclude Include="IBudget.h" />
@@ -151,6 +154,7 @@
     <ClInclude Include="market.h" />
     <ClInclude Include="mine.h" />
     <ClInclude Include="need.h" />
+    <ClInclude Include="PlaceholderDEFINES.h" />
     <ClInclude Include="Pop.h" />
     <ClInclude Include="PopType.h" />
     <ClInclude Include="product.h" />

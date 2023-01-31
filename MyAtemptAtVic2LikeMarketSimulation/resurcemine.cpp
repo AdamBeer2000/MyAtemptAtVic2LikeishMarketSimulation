@@ -1,39 +1,34 @@
 #include "resurcemine.h"
-
-void ResourceGatheringOperation::Produce(double ammount)
-{
-	auto market = SingletonWorldMarket::getInstance();
-	ProductStorage p = ProductStorage(myProductType, ammount, this);
-	market->AddToMarket(p);
-}
+#include "PlaceholderDEFINES.h"
 
 ResourceGatheringOperation::ResourceGatheringOperation(ProductType sourceType, double capacity, double startCash) :
-	ISource(capacity, startCash), IProductType(sourceType), IBudget(startCash)
+	ISource(sourceType, capacity, startCash), IBudget(startCash)
 {
 
 }
 
 void ResourceGatheringOperation::Payout()
 {
-	const int ownersTMP = 10;
-	double income4owners = IBudget::income * 2 * ownersTMP / workers.size();
-	if (income4owners > 0.5)
-		income4owners = 0.5;
-	double income2share = (1 - income4owners) * IBudget::income;
+	double income4owners = IBudget::income * 2 * owners.size() / workers.size();
+	if (income4owners > 0.5 * IBudget::income)
+		income4owners = 0.5 * IBudget::income;
+
+	double income2share = IBudget::income - income4owners;
+
 	double salary = income2share / workers.size();
+	double profit = income4owners / owners.size();
 
 	for (auto p : workers)
 	{
 		p.get()->Income(salary);
 	}
+	for (auto p : owners)
+	{
+		p.get()->Income(profit);
+	}
 
 	IBudget::Expense(income2share);
 	IBudget::income = 0;
-}
-
-void ResourceGatheringOperation::Produce()
-{
-	Produce(baseCapacity);
 }
 
 void ResourceGatheringOperation::Print()const
@@ -44,5 +39,30 @@ void ResourceGatheringOperation::Print()const
 	{
 		w.get()->Print();
 	}
+	std::cout << "Owners : " << std::endl;
+	for (auto o : owners)
+	{
+		o.get()->Print();
+	}
 	std::cout << std::endl;
+}
+
+double ResourceGatheringOperation::GetThroughput()
+{
+	double modifiers = (1 + RGOThroughputEfficiencyModifiers - WarExhaustion) * OverseaPenalty;
+	double workforce = workers.size();
+	double Throughput = (workforce / workforceCapacity) * modifiers;
+	return Throughput;
+}
+
+double ResourceGatheringOperation::GetOutputEfficiency()
+{
+	double OutputEfficiency = 1 + (owners.size() / (workers.size() + owners.size())) + RGOOutputEfficiencyModifiers + Terrain + ProvinceInfrastructure * (1 + MobilizedPenalty);
+	return OutputEfficiency;
+}
+
+double ResourceGatheringOperation::GetBaseProduction()
+{
+	double BaseProduction = ProvinceSize * (1 + Terrain + RGOSizeModifiers) * OutputAmount;
+	return BaseProduction;
 }

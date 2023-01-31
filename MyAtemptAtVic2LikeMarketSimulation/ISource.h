@@ -2,34 +2,42 @@
 #define SOURCE_H
 #include "Pop.h"
 #include "IBudget.h"
+#include "IProductType.h"
+#include "singletonworldmarket.h"
 
-class ISource :public IBudget
+class ISource :public IBudget, public IProductType
 {
 
 private:
 
 protected:
-	double baseCapacity;
+	double OutputAmount;
 	int workforceCapacity;
 	double payoutPercent;
 	std::vector<std::shared_ptr<Pop>> workers;
-	virtual void Produce(double ammount) = 0;
+	std::vector<std::shared_ptr<Pop>> owners;
+	virtual double GetThroughput() = 0;
+	virtual double GetOutputEfficiency() = 0;
+	virtual double GetBaseProduction() = 0;
 
 public:
-	ISource(double baseCapacity, double startCash, int workforceCapacity = 5000, double payoutPercent = 0.25) :
+	ISource(ProductType type, double OutputAmount, double startCash, int workforceCapacity = 5000, double payoutPercent = 0.25) :
 		IBudget(startCash),
-		baseCapacity(baseCapacity),
+		IProductType(type),
 		workforceCapacity(workforceCapacity),
-		payoutPercent(payoutPercent)
+		payoutPercent(payoutPercent),
+		OutputAmount(OutputAmount)
 	{
 
 	};
 	void AddWorker(std::shared_ptr<Pop> worker);
-	virtual void Payout();
-
-	double GetCapacity()const;
-
-	virtual void Produce() = 0;
+	void AddOwner(std::shared_ptr<Pop> owner);
+	virtual void Payout() = 0;
+	void Produce();
+	~ISource()
+	{
+		workers.clear();
+	}
 };
 
 #endif // SOURCE_H

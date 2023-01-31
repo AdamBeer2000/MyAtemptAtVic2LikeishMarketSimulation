@@ -16,4 +16,5 @@ protected:
 public:
 	virtual std::vector<ProductType>GetNeedTypes() = 0;
 	virtual void AddNeed(Need n) = 0;
+	virtual ~IConsumer() {};
 };

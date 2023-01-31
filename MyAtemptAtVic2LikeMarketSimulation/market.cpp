@@ -15,26 +15,32 @@ void Market::AddToMarket(ProductStorage product)
 	record->offers.push_back(std::make_shared<ProductStorage>(product));
 }
 
-bool Market::BuyAmount(ProductType ptype, unsigned int amount, std::shared_ptr<Need> storeIn, IBudget* buyer)
+bool Market::BuyAmount(ProductType ptype, double& amount, std::shared_ptr<Need> storeIn, IBudget* buyer)
 {
 	if (catalog.find(ptype) == catalog.end())return false;
+	if (amount == 0)return false;
 	auto rec = catalog.at(ptype);
 
 	auto offers = rec.get()->offers;
 
-	auto SuitableOffers = std::find_if(offers.begin(), offers.end(), [&amount](std::shared_ptr<ProductStorage> p)
+	auto BestFitOffer = std::min_element(offers.begin(), offers.end(), [&amount](std::shared_ptr<ProductStorage> a, std::shared_ptr<ProductStorage> b)->bool
 		{
-			return p.get()->getAmount() >= amount;
+			return abs(a.get()->getAmount() - amount) < abs(b.get()->getAmount() - amount);
 		});
-	if (SuitableOffers == std::end(offers))return false;
 
-	std::shared_ptr<ProductStorage> p = *SuitableOffers;
+	if (BestFitOffer == std::end(offers))return false;
+
+	std::shared_ptr<ProductStorage> p = *BestFitOffer;
 	auto source = p.get()->getSource();
+	if (p.get()->getAmount() < amount)
+		amount = p.get()->getAmount();
+
 	double cost = rec.get()->price * amount;
 	source->Income(cost);
 	buyer->Expense(cost);
 	p.get()->decreaseBy(amount);
-	storeIn.get()->incraseStored(amount);
+	if (storeIn)
+		storeIn.get()->incraseStored(amount);
 }
 
 double Market::GetCostOf(ProductType ptype)const

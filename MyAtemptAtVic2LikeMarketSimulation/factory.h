@@ -9,7 +9,7 @@
 #include "IProductType.h"
 #include "IBudget.h"
 
-class Factory :public ISource, public IProductType
+class Factory :public ISource
 {
 public:
 	std::vector<std::shared_ptr<Need>> needs;
@@ -19,8 +19,6 @@ public:
 	void Restock();
 	void Print();
 
-	// Inherited via Source
-	virtual void Produce(double ammount) override;
 };
 
 #endif // FACTORY_H

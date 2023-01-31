@@ -8,21 +8,15 @@ void ISource::AddWorker(std::shared_ptr<Pop> worker)
 	workers.push_back(worker);
 }
 
-void ISource::Payout()
+void ISource::AddOwner(std::shared_ptr<Pop> owner)
 {
-	double income2share = IBudget::income * payoutPercent;
-	double salary = income2share / workers.size();
-
-	for (auto p : workers)
-	{
-		p.get()->Income(salary);
-	}
-
-	Expense(income2share);
-	IBudget::income = 0;
+	owners.push_back(owner);
 }
 
-double ISource::GetCapacity() const
+void ISource::Produce()
 {
-	return (workers.size() / workforceCapacity) * baseCapacity;
+	auto market = SingletonWorldMarket::getInstance();
+	double Production = GetBaseProduction() * GetThroughput() * GetOutputEfficiency();
+	ProductStorage p = ProductStorage(myProductType, Production, this);
+	market->AddToMarket(p);
 }

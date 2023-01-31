@@ -6,18 +6,24 @@
 #include "IProductType.h"
 #include "IBudget.h"
 
-class ResourceGatheringOperation :public ISource, public IBudget, public IProductType
+class ResourceGatheringOperation :public ISource, public IBudget
 {
 
 private:
 
 protected:
-	void Produce(double ammount);
+
 public:
 	ResourceGatheringOperation(ProductType sourceType, double capacity, double startCash = 1000);
 	void Payout()override;
-	void Produce();
 	void Print()const;
+
+	// Inherited via ISource
+	virtual double GetThroughput() override;
+	virtual double GetOutputEfficiency() override;
+
+	// Inherited via ISource
+	virtual double GetBaseProduction() override;
 };
 
 #endif // SOURCE_H

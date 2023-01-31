@@ -28,7 +28,7 @@ private:
 public:
 	Market();
 	void AddToMarket(ProductStorage product);
-	bool BuyAmount(ProductType ptype, unsigned int amount, std::shared_ptr<Need> storeIn, IBudget* buyer);
+	bool BuyAmount(ProductType ptype, double& amount, std::shared_ptr<Need> storeIn, IBudget* buyer);
 	double GetCostOf(ProductType ptype)const;
 	void Print()const;
 };
