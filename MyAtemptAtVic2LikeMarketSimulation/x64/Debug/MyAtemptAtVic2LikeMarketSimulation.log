@@ -1,9 +1,28 @@
-﻿  ISimpleConsumer.cpp
+﻿  ISource.cpp
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  MyAtemptAtVic2LikeMarketSimulation.cpp
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\resurcemine.h(29,55): warning C4018: '>': signed/unsigned mismatch
+  Pop.cpp
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  PopMGR.cpp
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\resurcemine.h(29,55): warning C4018: '>': signed/unsigned mismatch
+  ProductCreator.cpp
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  ProductionMGR.cpp
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\resurcemine.h(29,55): warning C4018: '>': signed/unsigned mismatch
+  SingletonPopMGR.cpp
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\resurcemine.h(29,55): warning C4018: '>': signed/unsigned mismatch
+  SingletonProductionMGR.cpp
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\resurcemine.h(29,55): warning C4018: '>': signed/unsigned mismatch
+  factory.cpp
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   resurcemine.cpp
 C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\resurcemine.h(9,42): warning C4584: 'ResourceGatheringOperation': base-class 'IBudget' is already a base-class of 'ISource'
-C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\IBudget.h(6,7): message : see declaration of 'IBudget'
-C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\ISource.h(8,7): message : see declaration of 'ISource'
-C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\resurcemine.cpp(53,19): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'double', possible loss of data
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\resurcemine.h(29,55): warning C4018: '>': signed/unsigned mismatch
   Generating Code...
   MyAtemptAtVic2LikeMarketSimulation.vcxproj -> C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\x64\Debug\MyAtemptAtVic2LikeMarketSimulation.exe

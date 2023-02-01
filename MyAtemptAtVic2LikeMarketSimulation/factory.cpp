@@ -1,5 +1,5 @@
 #include "factory.h"
-
+/*
 Factory::Factory(ProductType sourceType, double capacity, std::vector<std::shared_ptr<Need>>needs, double startCash)
 	:ISource(sourceType, capacity, startCash), needs(needs)
 {
@@ -34,7 +34,7 @@ void Factory::Produce()
 
 		//Factory::Produce(baseCapacity);
 	}
-	*/
+
 }
 
 void Factory::Restock()
@@ -63,3 +63,5 @@ void Factory::Print()
 	}
 	std::cout << std::endl;
 }
+
+*/

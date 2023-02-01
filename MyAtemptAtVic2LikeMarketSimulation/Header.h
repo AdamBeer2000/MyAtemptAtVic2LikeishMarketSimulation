@@ -1,11 +1,12 @@
 #pragma once
-template<class t1, class t2>
-class A {
+
+class A
+{
 
 };
 
-template<class t3>
-class B :public A<int, t3>
+template<class t2>
+class B :public A<int, t2>
 {
 
 };

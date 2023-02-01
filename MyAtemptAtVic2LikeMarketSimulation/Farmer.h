@@ -4,7 +4,7 @@
 class Farmer :public Pop
 {
 public:
-	Farmer() :Pop(PopType::farmer, 5)
+	Farmer(unsigned int PopSize) :Pop(PopType::farmer, 0.001, PopSize)
 	{
 		AddNeed(PopNeed(grain, 2.5));
 		AddNeed(PopNeed(fish, 1));

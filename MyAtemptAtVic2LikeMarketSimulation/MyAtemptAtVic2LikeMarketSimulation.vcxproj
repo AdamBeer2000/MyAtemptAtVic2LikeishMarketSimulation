@@ -131,25 +131,36 @@
     <ClCompile Include="ISimpleConsumer.cpp" />
     <ClCompile Include="ISource.cpp" />
     <ClCompile Include="market.cpp" />
-    <ClCompile Include="mine.cpp" />
     <ClCompile Include="MyAtemptAtVic2LikeMarketSimulation.cpp" />
     <ClCompile Include="need.cpp" />
     <ClCompile Include="Pop.cpp" />
+    <ClCompile Include="PopMGR.cpp" />
     <ClCompile Include="product.cpp" />
+    <ClCompile Include="ProductCreator.cpp" />
+    <ClCompile Include="ProductionMGR.cpp" />
     <ClCompile Include="resurcemine.cpp" />
+    <ClCompile Include="SingletonPopMGR.cpp" />
+    <ClCompile Include="SingletonProductionMGR.cpp" />
     <ClCompile Include="singletonworldmarket.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Aristocrat.h" />
-    <ClInclude Include="Capitalist.h" />
-    <ClInclude Include="CattleRanch.h" />
+    <ClInclude Include="CountryModifiers.h" />
     <ClInclude Include="Farmer.h" />
+    <ClInclude Include="Farms.h" />
     <ClInclude Include="Header.h" />
+    <ClInclude Include="EfficiencyModifiers.h" />
     <ClInclude Include="IConsumer.h" />
     <ClInclude Include="factory.h" />
     <ClInclude Include="IBudget.h" />
     <ClInclude Include="IPrintable.h" />
     <ClInclude Include="ISimpleConsumer.h" />
+    <ClInclude Include="Labourer.h" />
+    <ClInclude Include="Mines.h" />
+    <ClInclude Include="PopMGR.h" />
+    <ClInclude Include="ProductCreator.h" />
+    <ClInclude Include="ProductionMGR.h" />
+    <ClInclude Include="ProvinceModifiers.h" />
     <ClInclude Include="mainwindow.h" />
     <ClInclude Include="market.h" />
     <ClInclude Include="mine.h" />
@@ -160,6 +171,8 @@
     <ClInclude Include="product.h" />
     <ClInclude Include="IProductType.h" />
     <ClInclude Include="resurcemine.h" />
+    <ClInclude Include="SingletonPopMGR.h" />
+    <ClInclude Include="SingletonProductionMGR.h" />
     <ClInclude Include="singletonworldmarket.h" />
     <ClInclude Include="ISource.h" />
   </ItemGroup>

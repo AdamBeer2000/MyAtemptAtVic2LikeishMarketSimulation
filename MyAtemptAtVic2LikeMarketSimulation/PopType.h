@@ -1,7 +1,7 @@
 #pragma once
 enum PopType
 {
-	craftman, laborel, capitalist, farmer, aristocrat
+	craftman, laborel, capitalist, farmer, aristocrat, artisan
 };
 
 class IPopType
@@ -14,7 +14,7 @@ public:
 	{
 
 	}
-	PopType getProductType()const
+	PopType getPopType()const
 	{
 		return myPopType;
 	}

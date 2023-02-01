@@ -49,13 +49,19 @@
     <Filter Include="Header Files\RGO">
       <UniqueIdentifier>{d2524140-289c-4a67-9a44-cf62142b0a47}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Modifiers">
+      <UniqueIdentifier>{8be5144e-4994-45a4-990a-65b46a2f2a23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Mannagers">
+      <UniqueIdentifier>{375c6b50-e89d-4cac-b0fc-604352773ed2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers">
+      <UniqueIdentifier>{38dec3d0-9286-4069-8cbc-c74ae60202bd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyAtemptAtVic2LikeMarketSimulation.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="mine.cpp">
-      <Filter>Source Files\Creators</Filter>
     </ClCompile>
     <ClCompile Include="factory.cpp">
       <Filter>Source Files\Creators</Filter>
@@ -82,6 +88,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ISource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PopMGR.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="SingletonPopMGR.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProductionMGR.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SingletonProductionMGR.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProductCreator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -134,9 +155,6 @@
     <ClInclude Include="Farmer.h">
       <Filter>Header Files\Pops</Filter>
     </ClInclude>
-    <ClInclude Include="Capitalist.h">
-      <Filter>Header Files\Pops</Filter>
-    </ClInclude>
     <ClInclude Include="Aristocrat.h">
       <Filter>Header Files\Pops</Filter>
     </ClInclude>
@@ -146,10 +164,40 @@
     <ClInclude Include="resurcemine.h">
       <Filter>Header Files\RGO</Filter>
     </ClInclude>
-    <ClInclude Include="CattleRanch.h">
+    <ClInclude Include="Header.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EfficiencyModifiers.h">
+      <Filter>Header Files\Modifiers</Filter>
+    </ClInclude>
+    <ClInclude Include="CountryModifiers.h">
+      <Filter>Header Files\Modifiers</Filter>
+    </ClInclude>
+    <ClInclude Include="ProvinceModifiers.h">
+      <Filter>Header Files\Modifiers</Filter>
+    </ClInclude>
+    <ClInclude Include="PopMGR.h">
+      <Filter>Header Files\Mannagers</Filter>
+    </ClInclude>
+    <ClInclude Include="Labourer.h">
+      <Filter>Header Files\Pops</Filter>
+    </ClInclude>
+    <ClInclude Include="ProductionMGR.h">
+      <Filter>Header Files\Mannagers</Filter>
+    </ClInclude>
+    <ClInclude Include="Farms.h">
       <Filter>Header Files\RGO</Filter>
     </ClInclude>
-    <ClInclude Include="Header.h">
+    <ClInclude Include="Mines.h">
+      <Filter>Header Files\RGO</Filter>
+    </ClInclude>
+    <ClInclude Include="SingletonPopMGR.h">
+      <Filter>Header Files\Mannagers</Filter>
+    </ClInclude>
+    <ClInclude Include="SingletonProductionMGR.h">
+      <Filter>Header Files\Mannagers</Filter>
+    </ClInclude>
+    <ClInclude Include="ProductCreator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -9,6 +9,7 @@
 #include "IProductType.h"
 #include "IBudget.h"
 
+/*
 class Factory :public ISource
 {
 public:
@@ -20,5 +21,5 @@ public:
 	void Print();
 
 };
-
+*/
 #endif // FACTORY_H

@@ -7,36 +7,65 @@
 
 class ISource :public IBudget, public IProductType
 {
-
 private:
 
 protected:
 	double OutputAmount;
 	int workforceCapacity;
-	double payoutPercent;
-	std::vector<std::shared_ptr<Pop>> workers;
+	PopType workerType;
 	std::vector<std::shared_ptr<Pop>> owners;
+
+
 	virtual double GetThroughput() = 0;
 	virtual double GetOutputEfficiency() = 0;
 	virtual double GetBaseProduction() = 0;
 
 public:
-	ISource(ProductType type, double OutputAmount, double startCash, int workforceCapacity = 5000, double payoutPercent = 0.25) :
-		IBudget(startCash),
+	ISource(ProductType type, PopType workerType, double OutputAmount, int workforceCapacity = 5000) :
 		IProductType(type),
+		workerType(workerType),
 		workforceCapacity(workforceCapacity),
-		payoutPercent(payoutPercent),
-		OutputAmount(OutputAmount)
+		OutputAmount(OutputAmount), IBudget(0)
 	{
 
 	};
-	void AddWorker(std::shared_ptr<Pop> worker);
-	void AddOwner(std::shared_ptr<Pop> owner);
+
+	virtual unsigned int JobOffers()const = 0;
+
+	virtual void AddWorker(std::shared_ptr<Pop> worker) = 0;
+
+	void AddOwner(std::shared_ptr<Pop> owner)
+	{
+		owners.push_back(owner);
+	}
+
+	unsigned int GetOwnerbaseSize()const
+	{
+		return std::accumulate(owners.begin(), owners.end(), 0, [](int accumulator, std::shared_ptr<Pop> p) {return accumulator + p.get()->GetPopSize(); });
+	}
+
 	virtual void Payout() = 0;
-	void Produce();
+
+	virtual void Produce()
+	{
+		const double BaseProduction = GetBaseProduction();
+		const double Throughput = GetThroughput();
+		const double OutputEfficiency = GetOutputEfficiency();
+		const double Production = BaseProduction * Throughput * OutputEfficiency;
+		if (Production <= 0)return;
+		ProductStorage p = ProductStorage(myProductType, Production, this);
+
+		SingletonWorldMarket::getInstance()->AddToMarket(p);
+	}
+
+	PopType GetWorkerType()const
+	{
+		return workerType;
+	}
+
 	~ISource()
 	{
-		workers.clear();
+		owners.clear();
 	}
 };
 
