@@ -127,37 +127,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="factory.cpp" />
+    <ClCompile Include="Factory.cpp" />
     <ClCompile Include="ISimpleConsumer.cpp" />
-    <ClCompile Include="ISource.cpp" />
     <ClCompile Include="market.cpp" />
     <ClCompile Include="MyAtemptAtVic2LikeMarketSimulation.cpp" />
     <ClCompile Include="need.cpp" />
     <ClCompile Include="Pop.cpp" />
     <ClCompile Include="PopMGR.cpp" />
     <ClCompile Include="product.cpp" />
-    <ClCompile Include="ProductCreator.cpp" />
+    <ClCompile Include="Artisan.cpp" />
     <ClCompile Include="ProductionMGR.cpp" />
-    <ClCompile Include="resurcemine.cpp" />
     <ClCompile Include="SingletonPopMGR.cpp" />
     <ClCompile Include="SingletonProductionMGR.cpp" />
     <ClCompile Include="singletonworldmarket.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Aristocrat.h" />
+    <ClInclude Include="Converters.h" />
     <ClInclude Include="CountryModifiers.h" />
+    <ClInclude Include="Factory.h" />
     <ClInclude Include="Farmer.h" />
     <ClInclude Include="Farms.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="EfficiencyModifiers.h" />
     <ClInclude Include="IConsumer.h" />
-    <ClInclude Include="factory.h" />
     <ClInclude Include="IBudget.h" />
     <ClInclude Include="IPrintable.h" />
     <ClInclude Include="ISimpleConsumer.h" />
     <ClInclude Include="Labourer.h" />
     <ClInclude Include="Mines.h" />
     <ClInclude Include="PopMGR.h" />
+    <ClInclude Include="Artisan.h" />
     <ClInclude Include="ProductCreator.h" />
     <ClInclude Include="ProductionMGR.h" />
     <ClInclude Include="ProvinceModifiers.h" />
@@ -170,7 +170,8 @@
     <ClInclude Include="PopType.h" />
     <ClInclude Include="product.h" />
     <ClInclude Include="IProductType.h" />
-    <ClInclude Include="resurcemine.h" />
+    <ClInclude Include="ResourceGatheringOperation.h" />
+    <ClInclude Include="SImulator.h" />
     <ClInclude Include="SingletonPopMGR.h" />
     <ClInclude Include="SingletonProductionMGR.h" />
     <ClInclude Include="singletonworldmarket.h" />

@@ -1,20 +1,26 @@
 #include "Pop.h"
+#include "Converters.h"
+
+int Pop::allpopcount = 0;
 
 Pop::Pop(PopType myType, double startCash, unsigned int PopSize)
 	:IPopType(myType),
 	PopSize(PopSize),
 	IBudget(startCash)
 {
+	allpopcount++;
+	popstackid = allpopcount;
 	basicneeds = std::vector<std::shared_ptr<PopNeed>>();
 }
 
-double Pop::CalcNeedFulfillment(PopNeed need)
+double Pop::CalcNeedFulfillment(PopNeed need, const double moneyCap)
 {
 	auto marketinstance = SingletonWorldMarket::getInstance();
 	double cost = marketinstance->GetCostOf(need.what);
 	if (cost == DBL_MAX)return 0;
-	double canBuy = myBudget / cost;
+	double canBuy = moneyCap / cost;
 	double needAmmount = GetNeedAmmount(need);
+
 	if (canBuy > needAmmount)
 		canBuy = needAmmount;
 
@@ -23,24 +29,64 @@ double Pop::CalcNeedFulfillment(PopNeed need)
 	return canBuy / needAmmount;
 }
 
-void Pop::CalcNeedFulfillment()
+double Pop::CalcNeedFulfillment(const std::vector<std::shared_ptr<PopNeed>>& needvector)
 {
 	double sumFullf = 0.0;
-	for (auto p : basicneeds)
+	auto buyable = std::vector<std::shared_ptr<PopNeed>>();
+	for (auto& p : needvector)
 	{
-		sumFullf += CalcNeedFulfillment(*p.get());
+		if (SingletonWorldMarket::getInstance()->IsGoodAvailable(p.get()->what))
+		{
+			buyable.push_back(p);
+		}
 	}
-	basicNeedFullfilment = sumFullf / basicneeds.size();
+
+	const double moneyCap = IBudget::myBudget / needvector.size();
+
+	for (auto& p : buyable)
+	{
+		sumFullf += CalcNeedFulfillment(*p.get(), moneyCap);
+	}
+	return sumFullf / needvector.size();
+}
+
+void Pop::CalcNeedFulfillment()
+{
+	basicNeedFullfilment = CalcNeedFulfillment(basicneeds);
+	evrydayNeedFullfilment = CalcNeedFulfillment(evrydayneeds);
+	luxuryNeedFullfilment = CalcNeedFulfillment(luxuryneeds);
 }
 
 void Pop::Print() const
 {
-	std::cout << "Pop: Type:" << myPopType << "Size: " << PopSize << " Money: " << myBudget << " Fullfilment:" << basicNeedFullfilment << "; " << std::endl;
+	std::cout << "Pop: Type:" << PopType2String(myPopType) << " " << popstackid << std::endl;
+	std::cout << " Size: " << PopSize << " Money Left: " << myBudget << std::endl;
+
+	if (!unemployed)
+		std::cout << "Insrustry : " << ProductType2String(indrustry) << std::endl;
+	else
+		std::cout << "Unenployed" << std::endl;
+
+	std::cout << "Fullfilments:"
+		" B:" << basicNeedFullfilment * 100 << "%; "
+		" E:" << evrydayNeedFullfilment * 100 << "%; "
+		" L:" << luxuryNeedFullfilment * 100 << "%; "
+		<< std::endl;
+	std::cout << "____________________________________________________________" << std::endl;
 }
 
 void Pop::AddNeed(PopNeed p)
 {
-	basicneeds.push_back(std::make_shared<PopNeed>(p));
+
+	switch (p.importance)
+	{
+	case PopNeed::Importance::basic:basicneeds.push_back(std::make_shared<PopNeed>(p));
+		break;
+	case PopNeed::Importance::evryday: evrydayneeds.push_back(std::make_shared<PopNeed>(p));
+		break;
+	case PopNeed::Importance::luxury: luxuryneeds.push_back(std::make_shared<PopNeed>(p));
+		break;
+	}
 }
 
 double Pop::GetNeedAmmount(PopNeed need)
@@ -56,9 +102,32 @@ bool Pop::IsUnemployed() const
 
 std::shared_ptr<Pop> Pop::fragment(unsigned int goes)
 {
-	Pop fragment = Pop(*this);
-	fragment.PopSize = goes;
-	this->PopSize = PopSize - goes;
+	const double split = myBudget / PopSize;
 
-	return std::make_shared<Pop>(fragment);
+	Pop* fragment = new Pop(myPopType, goes * split, goes);
+	this->PopSize -= goes;
+	this->myBudget = PopSize * split;
+	fragment->basicneeds = this->basicneeds;
+	fragment->evrydayneeds = this->evrydayneeds;
+	fragment->luxuryneeds = this->luxuryneeds;
+
+	return std::make_shared<Pop>(*fragment);
+}
+
+unsigned int Pop::GetPopSize() const
+{
+	return PopSize;
+}
+
+Pop::~Pop()
+{
+	basicneeds.clear();
+	evrydayneeds.clear();
+	luxuryneeds.clear();
+
+	std::cout << "DELETED : Pop: Type:" << PopType2String(myPopType) << " " << popstackid;
+	if (!unemployed)
+		std::cout << " Insrustry : " << ProductType2String(indrustry) << std::endl;
+	else
+		std::cout << " Unenployed" << std::endl;
 }

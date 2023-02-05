@@ -1,28 +1,17 @@
-﻿  ISource.cpp
+﻿  MyAtemptAtVic2LikeMarketSimulation.cpp
 C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  MyAtemptAtVic2LikeMarketSimulation.cpp
-C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\resurcemine.h(29,55): warning C4018: '>': signed/unsigned mismatch
-  Pop.cpp
-C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\ResourceGatheringOperation.h(29,55): warning C4018: '>': signed/unsigned mismatch
   PopMGR.cpp
 C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\resurcemine.h(29,55): warning C4018: '>': signed/unsigned mismatch
-  ProductCreator.cpp
-C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\ResourceGatheringOperation.h(29,55): warning C4018: '>': signed/unsigned mismatch
   ProductionMGR.cpp
 C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\resurcemine.h(29,55): warning C4018: '>': signed/unsigned mismatch
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\ResourceGatheringOperation.h(29,55): warning C4018: '>': signed/unsigned mismatch
   SingletonPopMGR.cpp
 C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\resurcemine.h(29,55): warning C4018: '>': signed/unsigned mismatch
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\ResourceGatheringOperation.h(29,55): warning C4018: '>': signed/unsigned mismatch
   SingletonProductionMGR.cpp
 C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\resurcemine.h(29,55): warning C4018: '>': signed/unsigned mismatch
-  factory.cpp
-C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  resurcemine.cpp
-C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\singletonworldmarket.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\resurcemine.h(29,55): warning C4018: '>': signed/unsigned mismatch
+C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\MyAtemptAtVic2LikeMarketSimulation\ResourceGatheringOperation.h(29,55): warning C4018: '>': signed/unsigned mismatch
   Generating Code...
   MyAtemptAtVic2LikeMarketSimulation.vcxproj -> C:\Projects\GitHub\MyAtemptAtVic2MarketSimulation\x64\Debug\MyAtemptAtVic2LikeMarketSimulation.exe

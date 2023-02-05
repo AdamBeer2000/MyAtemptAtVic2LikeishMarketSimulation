@@ -1,5 +1,5 @@
 #pragma once
-#include "resurcemine.h"
+#include "ResourceGatheringOperation.h"
 #include "Farmer.h"
 
 class GrainFarm :public ResourceGatheringOperation

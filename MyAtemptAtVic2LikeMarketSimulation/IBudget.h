@@ -41,18 +41,18 @@ public:
 		}
 	};
 
-	IBudget(double startCash) :myBudget(startCash)
+	IBudget(double startCash = 0) :myBudget(startCash)
 	{
 
 	}
 
-	void Expense(double ammount)
+	virtual void Expense(double ammount)
 	{
-		//if (myBudget - ammount < 0) throw BudgetExc(myBudget, ammount, true);
 		myBudget -= ammount;
+		income -= ammount;
 	}
 
-	void Income(double ammount)
+	virtual void Income(double ammount)
 	{
 		myBudget += ammount;
 		income += ammount;

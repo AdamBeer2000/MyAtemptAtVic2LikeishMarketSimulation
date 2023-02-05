@@ -14,3 +14,11 @@
 #define INVENTION_IMPACT_ON_DEMAND 0.5
 #define inventions 0.0
 #define BASE_GOODS_DEMAND 1.0
+#define Economicpolicymodifiers 1.0
+#define InputEfficeny 1.0
+#define FacktoryThroughputTecs 0.0
+#define FacktoryEfficiencyTecs 0.0
+#define EconomyEfficiencyTecs 0.0
+#define AVGInfrastructureInState 0.0
+#define LocalFactoryThroughput 0.0
+#define TotalPopulationOfState 100000

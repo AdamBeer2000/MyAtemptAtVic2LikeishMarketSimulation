@@ -142,12 +142,80 @@ std::shared_ptr<TropicalWoodFarm> ProductionMGR::CreateTropicalWoodFarm(int capa
 	return farm;
 }
 
+std::shared_ptr<CoalMine> ProductionMGR::CreateCoalMine(int capacity)
+{
+	std::shared_ptr<CoalMine> farm = std::make_shared<CoalMine>(capacity);
+	std::shared_ptr<ISource> farmptr = std::static_pointer_cast<ISource, CoalMine>(farm);
+	sources.push_back(farmptr);
+	return farm;
+}
+
+std::shared_ptr<IronMine> ProductionMGR::CreateIronMine(int capacity)
+{
+	std::shared_ptr<IronMine> farm = std::make_shared<IronMine>(capacity);
+	std::shared_ptr<ISource> farmptr = std::static_pointer_cast<ISource, IronMine>(farm);
+	sources.push_back(farmptr);
+	return farm;
+}
+
+std::shared_ptr<SulphurMine> ProductionMGR::CreateSulphurMine(int capacity)
+{
+	std::shared_ptr<SulphurMine> farm = std::make_shared<SulphurMine>(capacity);
+	std::shared_ptr<ISource> farmptr = std::static_pointer_cast<ISource, SulphurMine>(farm);
+	sources.push_back(farmptr);
+	return farm;
+}
+
+std::shared_ptr<PreciousMetalMine> ProductionMGR::CreatePreciousMetalMine(int capacity)
+{
+	std::shared_ptr<PreciousMetalMine> farm = std::make_shared<PreciousMetalMine>(capacity);
+	std::shared_ptr<ISource> farmptr = std::static_pointer_cast<ISource, PreciousMetalMine>(farm);
+	sources.push_back(farmptr);
+	return farm;
+}
+
+std::shared_ptr<OilMine> ProductionMGR::CreateOilMine(int capacity)
+{
+	std::shared_ptr<OilMine> farm = std::make_shared<OilMine>(capacity);
+	std::shared_ptr<ISource> farmptr = std::static_pointer_cast<ISource, OilMine>(farm);
+	sources.push_back(farmptr);
+	return farm;
+}
+
+std::shared_ptr<ResourceGatheringOperation> ProductionMGR::Create(ProductType productType, int capacity)
+{
+	switch (productType)
+	{
+	case grain: return CreateGrainFarm(capacity);
+	case timber:return CreateTimberFarm(capacity);
+	case cattle:return CreateCattleFarm(capacity);
+	case cotton:return CreateCottonFarm(capacity);
+	case coffee:return CreateCoffeFarm(capacity);
+	case dye:return CreateDyeFarm(capacity);
+	case fish:return CreateFishFarm(capacity);
+	case fruit: return CreateFruitFarm(capacity);
+	case opium:return CreateOpiumFarm(capacity);
+	case rubber:return CreateRubberFarm(capacity);
+	case wool:return CreateWoolFarm(capacity);
+	case silk:return CreateSilkFarm(capacity);
+	case tea:return CreateTeaFarm(capacity);
+	case tobaco:return CreateTobbacoFarm(capacity);
+	case tropical_wood: return CreateTropicalWoodFarm(capacity);
+	case coal:return CreateCoalMine(capacity);
+	case iron: return CreateIronMine(capacity);
+	case sulphur: return CreateSulphurMine(capacity);
+	case precious_metal: return	CreatePreciousMetalMine(capacity);
+	case oil:return CreateOilMine(capacity);
+	}
+	throw "";
+}
+
 std::vector<std::shared_ptr<ISource>> ProductionMGR::GetAviableJobs(PopType type)
 {
 	auto srcs = std::vector<std::shared_ptr<ISource>>();
 	for (auto src : sources)
 	{
-		if (src.get()->JobOffers() > 0 && src.get()->GetWorkerType() == type)
+		if (src.get()->JobOffers() > 0 && src.get()->CanIWorkHere(type))
 			srcs.push_back(src);
 	}
 

@@ -21,6 +21,7 @@ public:
 	void decreaseBy(double amount);
 	ProductType getType() const;
 	IBudget* getSource() const;
+	void MergerInto(ProductStorage& other);
 };
 
 inline bool operator == (const ProductStorage& a, const ProductStorage& b)

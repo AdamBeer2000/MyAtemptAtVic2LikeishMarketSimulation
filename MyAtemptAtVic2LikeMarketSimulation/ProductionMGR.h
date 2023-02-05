@@ -1,5 +1,6 @@
 #pragma once
 #include "Farms.h"
+#include "Mines.h"
 
 class ProductionMGR
 {
@@ -10,6 +11,12 @@ public:
 	void Iteration();
 	void Produce();
 	void PayOut();
+
+	void Insert(std::shared_ptr<ISource> s)
+	{
+		sources.push_back(s);
+	}
+
 	std::shared_ptr<GrainFarm> CreateGrainFarm(int capacity = 5000);
 	std::shared_ptr<TimberFarm> CreateTimberFarm(int capacity = 5000);
 	std::shared_ptr<CattleFarm> CreateCattleFarm(int capacity = 5000);
@@ -25,8 +32,16 @@ public:
 	std::shared_ptr<TeaFarm> CreateTeaFarm(int capacity = 5000);
 	std::shared_ptr<TobbacoFarm> CreateTobbacoFarm(int capacity = 5000);
 	std::shared_ptr<TropicalWoodFarm> CreateTropicalWoodFarm(int capacity = 5000);
+	std::shared_ptr<CoalMine> CreateCoalMine(int capacity = 5000);
+	std::shared_ptr<IronMine> CreateIronMine(int capacity = 5000);
+	std::shared_ptr<SulphurMine> CreateSulphurMine(int capacity = 5000);
+	std::shared_ptr<PreciousMetalMine> CreatePreciousMetalMine(int capacity = 5000);
+	std::shared_ptr<OilMine> CreateOilMine(int capacity = 5000);
+
+	std::shared_ptr<ResourceGatheringOperation> Create(ProductType productType, int capacity = 5000);
 
 	std::vector < std::shared_ptr<ISource> > GetAviableJobs(PopType type);
+
 
 	~ProductionMGR()
 	{

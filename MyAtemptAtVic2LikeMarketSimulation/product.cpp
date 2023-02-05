@@ -6,6 +6,12 @@ IBudget* ProductStorage::getSource() const
 	return mySource;
 }
 
+
+void ProductStorage::MergerInto(ProductStorage& other)
+{
+	other.increaseBy(this->amount);
+}
+
 ProductStorage::ProductStorage(ProductType pType, double amount, IBudget* pSource)
 	:myType(pType), amount(amount), mySource(pSource)
 {

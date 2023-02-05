@@ -15,39 +15,46 @@ void PopMGR::ReCalcFullfilment()
 
 void PopMGR::ArrangeUnenployedPops()
 {
-	auto unemployedpops = GetUnenployedPops();
+	std::vector<std::shared_ptr<ISource>> jobs;
+	std::vector<std::shared_ptr<Pop>> unemployedpops;
+
 	auto prod = SingletonProductionMGR::GetInstance();
 	auto addAfter = std::vector < std::shared_ptr<Pop>>();
-
-	for (auto pop : unemployedpops)
+	int noJobOffersCount = 0;
+	do
 	{
-		auto jobs = prod->GetAviableJobs(pop.get()->getPopType());
-		auto bestfit = std::min_element(jobs.begin(), jobs.end(),
-			[pop](const std::shared_ptr<ISource> a, const std::shared_ptr<ISource> b)
+		unemployedpops = GetUnenployedPops();
+		for (auto pop : unemployedpops)
+		{
+			jobs = prod->GetAviableJobs(pop.get()->getPopType());
+			if (jobs.size() == 0)
 			{
-				return std::abs((double)a.get()->JobOffers() - pop.get()->GetPopSize()) < std::abs((double)b.get()->JobOffers() - pop.get()->GetPopSize());
-			});
+				noJobOffersCount++;
+				continue;
+			}
 
-		std::shared_ptr<ISource> best = *bestfit;
-		auto jobOfferC = best.get()->JobOffers();
-		auto popsize = pop.get()->GetPopSize();
-		if (jobOfferC == popsize || jobOfferC > popsize)
-		{
-			best.get()->AddWorker(pop);
-		}
-		else
-		{
-			auto fragment = pop.get()->fragment(popsize - jobOfferC);
-			best.get()->AddWorker(pop);
-			addAfter.push_back(fragment);
-			pop.get()->SetUnemploed(false);
-		}
-	}
+			auto bestfit = std::min_element(jobs.begin(), jobs.end(),
+				[pop](const std::shared_ptr<ISource> a, const std::shared_ptr<ISource> b)
+				{
+					return std::abs((double)a.get()->JobOffers() - pop.get()->GetPopSize()) < std::abs((double)b.get()->JobOffers() - pop.get()->GetPopSize());
+				});
 
-	for (auto add : addAfter)
-	{
-		population.push_back(add);
-	}
+			std::shared_ptr<ISource> best = *bestfit;
+			auto jobOfferC = best.get()->JobOffers();
+			auto popsize = pop.get()->GetPopSize();
+			if (jobOfferC == popsize || jobOfferC > popsize)
+			{
+				best.get()->AddWorker(pop);
+			}
+			else
+			{
+				auto fragment = pop.get()->fragment(jobOfferC);
+				best.get()->AddWorker(fragment);
+				fragment.get()->SetUnemploed(false, best.get()->getProductType());
+				addAfter.push_back(fragment);
+			}
+		}
+	} while (unemployedpops.size() != 0 && noJobOffersCount != unemployedpops.size());
 }
 
 std::vector<std::shared_ptr<Pop>>PopMGR::GetUnenployedPops() const
@@ -61,11 +68,6 @@ std::vector<std::shared_ptr<Pop>>PopMGR::GetUnenployedPops() const
 	return pops;
 }
 
-void PopMGR::Iteration()
-{
-	ReCalcFullfilment();
-	MergePops();
-}
 
 std::shared_ptr<Farmer> PopMGR::CreateFarmer(unsigned int PopSize)
 {
@@ -86,6 +88,15 @@ std::shared_ptr<Labourer> PopMGR::CreateLabourer(unsigned int PopSize)
 	auto labourer = std::make_shared<Labourer>(PopSize);
 	population.push_back(labourer);
 	return labourer;
+}
+
+std::shared_ptr<Artisan> PopMGR::CreateArtisan(ProductType type, unsigned int PopSize)
+{
+	auto tmp = new Artisan(type, 1.0, PopSize);
+	SingletonProductionMGR::GetInstance()->Insert(std::make_shared<Artisan>(*tmp));
+
+	population.push_back(std::make_shared<Artisan>(*tmp));
+	return std::make_shared<Artisan>(*tmp);
 }
 
 void PopMGR::Print() const

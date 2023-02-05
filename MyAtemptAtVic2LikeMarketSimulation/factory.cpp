@@ -1,67 +1,94 @@
 #include "factory.h"
-/*
-Factory::Factory(ProductType sourceType, double capacity, std::vector<std::shared_ptr<Need>>needs, double startCash)
-	:ISource(sourceType, capacity, startCash), needs(needs)
+
+double Factory::GetThroughput() const
 {
-
-}
-void Factory::Produce()
-{
-	/*
-	auto lambda = [](const std::shared_ptr<Need> a, const std::shared_ptr<Need> b)->bool
-	{
-		return a->ammountCanBeMade() < b->ammountCanBeMade();
-	};
-	std::vector<std::shared_ptr<Need>>::iterator minimumElement = std::min_element(needs.begin(), needs.end(), lambda);
-	double canBeMade = ((std::shared_ptr<Need>) * minimumElement)->ammountCanBeMade();
-
-	if (canBeMade < BaseProduction)
-	{
-		for (auto n : needs)
-		{
-			n->Consume(canBeMade);
-		}
-
-		//Factory::Produce(canBeMade);
-
-	}
-	else
-	{
-		for (auto n : needs)
-		{
-			n->Consume(BaseProduction);
-		}
-
-		//Factory::Produce(baseCapacity);
-	}
-
+	return (craftmancount / (FactorySizeBase * 10000)) *
+		(1 + FacktoryThroughputTecs + AVGInfrastructureInState * 0.16) *
+		(1 + LocalFactoryThroughput);
 }
 
-void Factory::Restock()
+double Factory::GetOutputEfficiency() const
 {
-	auto instancle = SingletonWorldMarket::getInstance();
-
-	for (auto n : needs)
-	{
-		double cost = instancle->GetCostOf(n.get()->getProductType());
-		double need = n->need2FillToCapacity();
-		double canBuy = myBudget / cost;
-
-		if (canBuy > n->getCapacity())
-			canBuy = n->getCapacity();
-
-		instancle->BuyAmount(n.get()->getProductType(), canBuy, n, this);
-	}
+	const double NumberOfCapitalists = GetOwnerbaseSize();
+	return 1 - ((1.5 * (clerkcount / TotalPopulationOfState)) + FacktoryEfficiencyTecs + EconomyEfficiencyTecs);
 }
 
-void Factory::Print()
+double Factory::GetInputEfficiency() const
 {
-	std::cout << "Type: " << myProductType << " Money:" << myBudget << " Needs : ";
-	for (auto n : needs)
-	{
-		n.get()->Print();
-	}
-	std::cout << std::endl;
+	const double NumberOfCapitalists = GetOwnerbaseSize();
+	return 1 - ((2.5 * (NumberOfCapitalists / TotalPopulationOfState)) - FacktoryEfficiencyTecs - EconomyEfficiencyTecs);
 }
 
-*/
+double Factory::GetBaseProduction() const
+{
+	return OutputAmount;
+}
+
+double Factory::GetInput(double baseinput) const
+{
+	return FactorySizeBase * baseinput * GetThroughput() * GetInputEfficiency();
+}
+
+double Factory::GetOutput() const
+{
+	return FactorySizeBase * GetBaseProduction() * GetThroughput() * GetOutputEfficiency();
+}
+
+void Factory::IsBankrupt() const
+{
+	income < 1000;
+}
+
+bool Factory::CanIWorkHere(PopType p) const
+{
+	return p == craftman || p == clerk;
+}
+
+unsigned int Factory::JobOffers()
+{
+	return FactorySizeBase - GetWorkforceSize();
+}
+
+void Factory::AddWorker(std::shared_ptr<Pop> worker)
+{
+	if (GetWorkforceSize() + worker.get()->GetPopSize() > FactorySizeBase)
+		throw "workforceCapacity exceeded";
+	if (worker.get()->getPopType() == craftman)
+		craftmancount += worker.get()->GetPopSize();
+	if (worker.get()->getPopType() == clerk)
+		clerkcount += worker.get()->GetPopSize();
+
+	worker.get()->SetUnemploed(false, myProductType);
+	workers.push_back(worker);
+}
+
+void Factory::Payout()
+{
+	if (income <= 0)return;
+	unsigned int ownerPopSize = GetOwnerbaseSize();
+	unsigned int workerPopSize = GetWorkforceSize();
+
+	double income4owners = income * 2.0 * ownerPopSize / workerPopSize;
+	if (income4owners > 0.5 * income)
+		income4owners = 0.5 * income;
+
+	double income4workers = income - income4owners;
+
+	double salary = income4workers / workerPopSize;
+	double profit = income4owners / ownerPopSize;
+
+	for (std::shared_ptr<Pop> p : workers)
+	{
+		const double salary4pop = salary * p.get()->GetPopSize();
+		p.get()->Income(salary4pop);
+	}
+
+	for (std::shared_ptr<Pop> p : owners)
+	{
+		const double profit4pops = profit * p.get()->GetPopSize();
+		p.get()->Income(profit4pops);
+	}
+
+	Expense(income4workers);
+	income = 0;
+}

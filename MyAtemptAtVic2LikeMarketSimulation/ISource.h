@@ -5,37 +5,42 @@
 #include "IProductType.h"
 #include "singletonworldmarket.h"
 
-class ISource :public IBudget, public IProductType
+class ISource :virtual public IBudget, public IProductType
 {
 private:
 
 protected:
 	double OutputAmount;
-	int workforceCapacity;
+	int FactorySizeBase;
 	PopType workerType;
 	std::vector<std::shared_ptr<Pop>> owners;
 
 
-	virtual double GetThroughput() = 0;
-	virtual double GetOutputEfficiency() = 0;
-	virtual double GetBaseProduction() = 0;
+	virtual double GetThroughput()const = 0;
+	virtual double GetOutputEfficiency()const = 0;
+	virtual double GetBaseProduction()const = 0;
 
 public:
-	ISource(ProductType type, PopType workerType, double OutputAmount, int workforceCapacity = 5000) :
+	ISource(ProductType type, PopType workerType, double OutputAmount, int FactorySizeBase = 1) :
 		IProductType(type),
 		workerType(workerType),
-		workforceCapacity(workforceCapacity),
-		OutputAmount(OutputAmount), IBudget(0)
+		FactorySizeBase(FactorySizeBase),
+		OutputAmount(OutputAmount)
 	{
 
 	};
 
 	virtual unsigned int JobOffers()const = 0;
+	virtual bool CanIWorkHere(PopType p)const
+	{
+		return p == workerType;
+	}
 
 	virtual void AddWorker(std::shared_ptr<Pop> worker) = 0;
 
 	void AddOwner(std::shared_ptr<Pop> owner)
 	{
+		owner.get()->SetUnemploed(false, myProductType);
 		owners.push_back(owner);
 	}
 
@@ -46,21 +51,17 @@ public:
 
 	virtual void Payout() = 0;
 
-	virtual void Produce()
-	{
-		const double BaseProduction = GetBaseProduction();
-		const double Throughput = GetThroughput();
-		const double OutputEfficiency = GetOutputEfficiency();
-		const double Production = BaseProduction * Throughput * OutputEfficiency;
-		if (Production <= 0)return;
-		ProductStorage p = ProductStorage(myProductType, Production, this);
+	virtual void Produce() = 0;
 
-		SingletonWorldMarket::getInstance()->AddToMarket(p);
-	}
 
 	PopType GetWorkerType()const
 	{
 		return workerType;
+	}
+
+	void Income(double a)override
+	{
+		IBudget::Income(a);
 	}
 
 	~ISource()

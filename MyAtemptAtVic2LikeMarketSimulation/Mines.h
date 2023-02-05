@@ -1,15 +1,8 @@
 #pragma once
 #include "Labourer.h"
-#include "resurcemine.h"
-/*
-Coal.png Coal	175	Mine
-Iron.png Iron	112	Mine
-Sulphur.png Sulphur	35	Mine
-Precious metal.png Precious Metal	1	Mine
-Resource oil.png Oil	0	Mine
-*/
+#include "ResourceGatheringOperation.h"
 
-class CoalMine :ResourceGatheringOperation
+class CoalMine :public ResourceGatheringOperation
 {
 public:
 	CoalMine(int workforceCap) :ResourceGatheringOperation(coal, laborel, 2.4, workforceCap)
@@ -18,7 +11,7 @@ public:
 	}
 };
 
-class IronMine :ResourceGatheringOperation
+class IronMine :public ResourceGatheringOperation
 {
 public:
 	IronMine(int workforceCap) :ResourceGatheringOperation(iron, laborel, 1.8, workforceCap)
@@ -27,7 +20,7 @@ public:
 	}
 };
 
-class SulphurMine :ResourceGatheringOperation
+class SulphurMine :public ResourceGatheringOperation
 {
 public:
 	SulphurMine(int workforceCap) :ResourceGatheringOperation(sulphur, laborel, 2, workforceCap)
@@ -36,7 +29,7 @@ public:
 	}
 };
 
-class PreciousMetalMine :ResourceGatheringOperation
+class PreciousMetalMine :public ResourceGatheringOperation
 {
 public:
 	PreciousMetalMine(int workforceCap) :ResourceGatheringOperation(precious_metal, laborel, 2, workforceCap)
@@ -45,7 +38,7 @@ public:
 	}
 };
 
-class OilMine :ResourceGatheringOperation
+class OilMine :public ResourceGatheringOperation
 {
 public:
 	OilMine(int workforceCap) :ResourceGatheringOperation(oil, laborel, 1, workforceCap)

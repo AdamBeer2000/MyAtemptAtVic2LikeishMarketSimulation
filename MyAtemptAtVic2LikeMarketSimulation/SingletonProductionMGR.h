@@ -13,6 +13,6 @@ public:
 	}
 	~SingletonProductionMGR()
 	{
-		delete instance;
+		std::cout << " asda ddas";
 	}
 };

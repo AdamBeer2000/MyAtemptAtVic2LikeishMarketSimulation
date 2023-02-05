@@ -22,12 +22,6 @@
     <Filter Include="Source Files\Creators">
       <UniqueIdentifier>{f397a1b8-7aec-4bb9-b5df-f5d38ddba012}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Market">
-      <UniqueIdentifier>{2822527e-582b-4b6a-ae63-f0de0527b3c8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Market">
-      <UniqueIdentifier>{bba149d6-6d77-47fb-bc3f-190b9ad2accf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Models">
       <UniqueIdentifier>{ff940a98-336d-491f-b2bc-7d867f457d60}</UniqueIdentifier>
     </Filter>
@@ -58,22 +52,13 @@
     <Filter Include="Source Files\Managers">
       <UniqueIdentifier>{38dec3d0-9286-4069-8cbc-c74ae60202bd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Factory">
+      <UniqueIdentifier>{74494b9f-6aa3-4ba6-956e-a7d0bd235f38}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyAtemptAtVic2LikeMarketSimulation.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="factory.cpp">
-      <Filter>Source Files\Creators</Filter>
-    </ClCompile>
-    <ClCompile Include="resurcemine.cpp">
-      <Filter>Source Files\Creators</Filter>
-    </ClCompile>
-    <ClCompile Include="market.cpp">
-      <Filter>Source Files\Market</Filter>
-    </ClCompile>
-    <ClCompile Include="singletonworldmarket.cpp">
-      <Filter>Source Files\Market</Filter>
     </ClCompile>
     <ClCompile Include="need.cpp">
       <Filter>Source Files\Models</Filter>
@@ -87,22 +72,28 @@
     <ClCompile Include="ISimpleConsumer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ISource.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PopMGR.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
     <ClCompile Include="SingletonPopMGR.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ProductionMGR.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SingletonProductionMGR.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ProductCreator.cpp">
+    <ClCompile Include="Artisan.cpp">
+      <Filter>Source Files\Consumers</Filter>
+    </ClCompile>
+    <ClCompile Include="ProductionMGR.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="market.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="singletonworldmarket.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Factory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -116,20 +107,11 @@
     <ClInclude Include="IBudget.h">
       <Filter>Header Files\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="factory.h">
-      <Filter>Header Files\Creators</Filter>
-    </ClInclude>
     <ClInclude Include="mine.h">
       <Filter>Header Files\Creators</Filter>
     </ClInclude>
     <ClInclude Include="ISource.h">
       <Filter>Header Files\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="market.h">
-      <Filter>Header Files\Market</Filter>
-    </ClInclude>
-    <ClInclude Include="singletonworldmarket.h">
-      <Filter>Header Files\Market</Filter>
     </ClInclude>
     <ClInclude Include="product.h">
       <Filter>Header Files\Models</Filter>
@@ -161,7 +143,7 @@
     <ClInclude Include="PlaceholderDEFINES.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="resurcemine.h">
+    <ClInclude Include="ResourceGatheringOperation.h">
       <Filter>Header Files\RGO</Filter>
     </ClInclude>
     <ClInclude Include="Header.h">
@@ -197,8 +179,26 @@
     <ClInclude Include="SingletonProductionMGR.h">
       <Filter>Header Files\Mannagers</Filter>
     </ClInclude>
+    <ClInclude Include="Artisan.h">
+      <Filter>Header Files\Pops</Filter>
+    </ClInclude>
     <ClInclude Include="ProductCreator.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="market.h">
+      <Filter>Header Files\Mannagers</Filter>
+    </ClInclude>
+    <ClInclude Include="singletonworldmarket.h">
+      <Filter>Header Files\Mannagers</Filter>
+    </ClInclude>
+    <ClInclude Include="SImulator.h">
+      <Filter>Header Files\Mannagers</Filter>
+    </ClInclude>
+    <ClInclude Include="Converters.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory.h">
+      <Filter>Header Files\Factory</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
